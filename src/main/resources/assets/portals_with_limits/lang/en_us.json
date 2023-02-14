@@ -1,0 +1,12 @@
+{
+  "portals_with_limits.already_in_progress": "Portal filling already in progress!",
+  "portals_with_limits.too_big": "Portal spread too far away! Destabilizing.",
+  "portals_with_limits.no_core": "No core found? Internal mod error, please report this to Limit System",
+  "portals_with_limits.blocked": "Portal area blocked! Portal starts spreading 2 blocks above the core.",
+
+  "item.portals_with_limits.portal_core": "Portal Core",
+  "item.portals_with_limits.portal": "Portal Block",
+
+  "block.portals_with_limits.portal_core": "Portal Core",
+  "block.portals_with_limits.portal": "Portal"
+}

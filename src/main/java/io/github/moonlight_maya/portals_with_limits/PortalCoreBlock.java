@@ -67,14 +67,8 @@ public class PortalCoreBlock extends Block {
                     spe.sendMessage(new TranslatableText("portals_with_limits.no_core"), false);
                     return ActionResult.CONSUME;
                 }
-                if (coreData.negativeTarget == null && coreData.positiveTarget == null) {
-                    //No connected core
-                    spe.sendMessage(new TranslatableText("portals_with_limits.no_connection"), true);
-                    return ActionResult.CONSUME;
-                }
                 BlockState twoAbove = world.getBlockState(pos.add(0, 2, 0));
-                BlockState threeAbove = world.getBlockState(pos.add(0, 3, 0));
-                if (!twoAbove.isAir() || !threeAbove.isAir()) {
+                if (!twoAbove.isAir()) {
                     spe.sendMessage(new TranslatableText("portals_with_limits.blocked"), true);
                     return ActionResult.CONSUME;
                 }

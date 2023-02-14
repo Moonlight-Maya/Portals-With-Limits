@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OWO",
+    "uwu",
+    "OWO"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "u": {
+      "item": "minecraft:ender_pearl"
+    },
+    "w": {
+      "item": "minecraft:diamond_block"
+    },
+    "W": {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "result": {
+    "item": "portals_with_limits:portal_core"
+  }
+}
