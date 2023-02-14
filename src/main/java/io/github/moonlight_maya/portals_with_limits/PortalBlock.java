@@ -55,12 +55,20 @@ public class PortalBlock extends BlockWithEntity {
                 PortalsWithLimits.CoreData coreData = PortalsWithLimits.PORTAL_CORES.get(serverWorld).get(rootPos);
                 if (coreData != null) {
                     if (axisValue >= 0 && coreData.positiveTarget != null) {
-                        Vec3d teleportPos = new Vec3d(coreData.positiveTarget.getX()+0.5+entityToCenter.x, coreData.positiveTarget.getY()+2, coreData.positiveTarget.getZ()+0.5+entityToCenter.z);
-                        FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(teleportPos, Vec3d.ZERO, entity.getYaw(), entity.getPitch()));
+                        double x = coreData.positiveTarget.getX()+0.5+entityToCenter.x;
+                        double y = coreData.positiveTarget.getY()+2;
+                        double z = coreData.positiveTarget.getZ()+0.5+entityToCenter.z;
+                        entity.requestTeleport(x, y, z);
+//                        Vec3d teleportPos = new Vec3d(x, y, z);
+//                        FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(teleportPos, Vec3d.ZERO, entity.getYaw(), entity.getPitch()));
                         ((EntityAccess) entity).setUsedPortal(coreData.positiveTarget, xAxis);
                     } else if (axisValue < 0 && coreData.negativeTarget != null) {
-                        Vec3d teleportPos = new Vec3d(coreData.negativeTarget.getX()+0.5+entityToCenter.x, coreData.negativeTarget.getY()+2, coreData.negativeTarget.getZ()+0.5+entityToCenter.z);
-                        FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(teleportPos, Vec3d.ZERO, entity.getYaw(), entity.getPitch()));
+                        double x = coreData.negativeTarget.getX()+0.5+entityToCenter.x;
+                        double y = coreData.negativeTarget.getY()+2;
+                        double z = coreData.negativeTarget.getZ()+0.5+entityToCenter.z;
+                        entity.requestTeleport(x, y, z);
+//                        Vec3d teleportPos = new Vec3d(coreData.negativeTarget.getX()+0.5+entityToCenter.x, coreData.negativeTarget.getY()+2, coreData.negativeTarget.getZ()+0.5+entityToCenter.z);
+//                        FabricDimensions.teleport(entity, serverWorld, new TeleportTarget(teleportPos, Vec3d.ZERO, entity.getYaw(), entity.getPitch()));
                         ((EntityAccess) entity).setUsedPortal(coreData.negativeTarget, xAxis);
                     }
                 }

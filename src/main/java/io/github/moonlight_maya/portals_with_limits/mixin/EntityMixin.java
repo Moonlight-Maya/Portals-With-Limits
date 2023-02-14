@@ -27,6 +27,9 @@ public abstract class EntityMixin implements EntityAccess {
     @Nullable
     private Boolean portals_with_limits$lastPortalWasXAxis;
 
+    @Unique
+    private int portals_with_limits$portalCooldown;
+
     @Inject(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tickNetherPortal()V", shift = At.Shift.AFTER))
     public void tickPortalsWithLimits(CallbackInfo ci) {
         if (portals_with_limits$lastPortalDestination != null && portals_with_limits$lastPortalWasXAxis != null) {
@@ -39,16 +42,20 @@ public abstract class EntityMixin implements EntityAccess {
                 portals_with_limits$lastPortalWasXAxis = null;
             }
         }
+        if (portals_with_limits$portalCooldown > 0) {
+            portals_with_limits$portalCooldown--;
+        }
     }
 
     @Override
     public boolean canUsePortal() {
-        return portals_with_limits$lastPortalDestination == null;
+        return portals_with_limits$lastPortalDestination == null && portals_with_limits$portalCooldown == 0;
     }
 
     @Override
     public void setUsedPortal(BlockPos destination, boolean xAxis) {
         portals_with_limits$lastPortalWasXAxis = xAxis;
         portals_with_limits$lastPortalDestination = (xAxis ? destination.getX() : destination.getZ()) + 0.5;
+        portals_with_limits$portalCooldown = 20;
     }
 }
