@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "portals_with_limits:block/portal_core", "y": 90 },
+    "axis=z": { "model": "portals_with_limits:block/portal_core" }
+  }
+}

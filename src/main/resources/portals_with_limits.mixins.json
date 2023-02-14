@@ -1,12 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "io.github.moonlight_maya.portals_with_limits.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EntityMixin"
   ],
   "client": [
-    "ExampleMixin"
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

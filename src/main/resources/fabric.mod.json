@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "portals_with_limits",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Portals with Limits",
+  "description": "Mod that provides options for travelling long distances through the use of portals. The idea came up when thinking about adding the Waystones mod, for players who live far away from spawn, but we didn't like the fact that Waystones' existence essentially makes all other forms of transportation obsolete. Thus this mod idea was born!",
   "authors": [
-    "Me!"
+    "Limit System"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Moonlight-Maya/Portals-With-Limits"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/portals_with_limits/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.moonlight_maya.portals_with_limits.PortalsWithLimits"
+    ],
+    "client": [
+      "io.github.moonlight_maya.portals_with_limits.PortalsWithLimitsClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "portals_with_limits.mixins.json"
   ],
 
   "depends": {
